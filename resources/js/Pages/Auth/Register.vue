@@ -1,10 +1,13 @@
 <script setup>
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import InputError from '@/Components/InputError.vue';
+
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+
+defineProps({errors:Object}) ;
 
 const form = useForm({
     name: '',
@@ -38,8 +41,7 @@ const submit = () => {
                     autofocus
                     autocomplete="name"
                 />
-
-                <InputError class="mt-2" :message="form.errors.name" />
+         <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
             <div class="mt-4">
