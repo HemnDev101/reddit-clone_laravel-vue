@@ -12,6 +12,12 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
+
+        <div  v-if="$page.props.flash.message"
+            class="mb-4 rounded-lg bg-neutral-800 px-6 py-5 text-base text-neutral-50 dark:bg-neutral-900"
+            role="alert">
+            {{ $page.props.flash.message }}</div>
+
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->

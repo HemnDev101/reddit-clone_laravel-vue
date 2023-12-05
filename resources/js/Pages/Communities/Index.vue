@@ -3,6 +3,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
  import { Head,  Link } from '@inertiajs/vue3';
+import DangerButton from "@/Components/DangerButton.vue";
 
 defineProps({
     community:Object
@@ -64,6 +65,7 @@ defineProps({
                              <td class="whitespace-nowrap  px-6 py-4">{{ val.name }}</td>
                              <td class="whitespace-nowrap  px-6 py-4">{{ val.slug }}</td>
                              <Link :href="route('communities.edit' , val.id)"   >Edit</Link>
+                             <danger-button   :href="route('communities.destroy' , val.id)"   >Delete</danger-button>
 <!--                            <Link class="whitespace-nowrap  px-6 py-4" :href="route(community.index)">Edit</Link>-->
 
                          </tr>

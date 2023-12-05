@@ -45,7 +45,7 @@ return Inertia::render('Communities/Index' , compact('community') );
 
         $community = Community::create($validatedData);
 
-        return to_route('communities.index');
+        return to_route('communities.index')->with('message' , 'Community Created Successfully.');
     }
 
     /**
@@ -75,7 +75,7 @@ return Inertia::render('Communities/Index' , compact('community') );
 
         $community->update($request->validated());
 
-        return to_route('communities.index');
+        return to_route('communities.index')->with('message' , 'Community Update Successfully.');
 
 
     }
@@ -83,8 +83,11 @@ return Inertia::render('Communities/Index' , compact('community') );
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+
+    public function destroy(Community $community)
     {
-        //
+        $community->delete();
+        return back()->with('message' , 'Community Deleted Successfully.') ;
     }
+
 }
