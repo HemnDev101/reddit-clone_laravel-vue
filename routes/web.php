@@ -32,7 +32,7 @@ Route::get('/', function () {
      })->name('dashboard');
 
 
-     Route::resource('/cummunities' , \App\Http\Controllers\Backend\CommunityController::class);
+     Route::resource('/communities' , \App\Http\Controllers\Backend\CommunityController::class);
 
  } );
 //Route::get('/dashboard', function () {
