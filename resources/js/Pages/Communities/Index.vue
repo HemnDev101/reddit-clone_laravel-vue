@@ -4,7 +4,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
  import { Head,  Link } from '@inertiajs/vue3';
 import DangerButton from "@/Components/DangerButton.vue";
-
+import Pagination from "@/Components/Pagination.vue";
 defineProps({
     community:Object
 }) ;
@@ -60,7 +60,7 @@ defineProps({
                          </tr>
                          </thead>
                          <tbody>
-                         <tr class="border-b dark:border-neutral-500" v-for="val in community" :key="val.id">
+                         <tr class="border-b dark:border-neutral-500" v-for="val in community.data" :key="val.id">
                              <td class="whitespace-nowrap  px-6 py-4 font-medium">{{ val.id }}</td>
                              <td class="whitespace-nowrap  px-6 py-4">{{ val.name }}</td>
                              <td class="whitespace-nowrap  px-6 py-4">{{ val.slug }}</td>
@@ -72,6 +72,10 @@ defineProps({
 
                          </tbody>
                      </table>
+<!--                     <div class="m-2 p-2 ">-->
+<!--                     <Link v-for="val in community.links"  :key="val.id" :href="val.url"> {{ val.label }}</Link>-->
+<!--                     </div>-->
+                     <Pagination :links="community.links" :key="community.key" > </Pagination>
                  </div>
              </div>
          </div>
