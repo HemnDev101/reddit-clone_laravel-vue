@@ -25,6 +25,7 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/r/{slug}' , [\App\Http\Controllers\Frontend\SubredditController::class , 'show'])->name('subreddit.show');
  Route::group(['middleware' => ['auth' , 'verified']], function (){
 
      Route::get('/dashboard', function () {
@@ -32,7 +33,7 @@ Route::get('/', function () {
      })->name('dashboard');
 
 
-     Route::resource('/communities' , \App\Http\Controllers\Backend\CommunityController::class);
+     Route::resource('dashboard/communities' , \App\Http\Controllers\Backend\CommunityController::class);
 
  } );
 //Route::get('/dashboard', function () {
